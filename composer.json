@@ -1,0 +1,8 @@
+{
+    "name": "dh-php-annotations",
+    "require" : {
+        "symfony/class-loader": "~2",
+        "doctrine/common": "*",
+        "jms/di-extra-bundle": "*"
+    }
+}
