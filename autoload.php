@@ -24,3 +24,5 @@ use Doctrine\Common\Annotations\AnnotationRegistry;
 AnnotationRegistry::registerLoader(array($loader, "loadClass"));
 
 /*** doctrine ***/
+
+new Mindplay\Annotation\AnnotationManager();die('test');
