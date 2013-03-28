@@ -35,12 +35,19 @@ class BenchmarkWrapper
             $start = microtime(true);
             
             $iterations = $this->benchmarks[$name]->iterations;
+            
+            if(!$iterations && $this->benchmarks['.default'] instanceof Doctrine\Annotation\Benchmark) {
+                $iterations = $this->benchmarks['.default']->iterations;
+            }
+            
+            $return = null;
+            
             for($i = 0; $i < $iterations; $i++) {
                 $return = call_user_func_array(array($this->object, $name), $arguments);
             }
             
             $end = microtime(true);
-            echo get_class($this->object)."->$name() call [x$iterations] took: " . ($end - $start) . " miliseconds\n";
+            echo "\n".get_class($this->object)."->$name() call [x$iterations] took: " . ($end - $start) . " seconds\n";
             return $return;
         }
         else {

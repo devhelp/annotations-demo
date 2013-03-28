@@ -20,6 +20,8 @@ class DoctrineAnnotationEngineDecorator implements AnnotationEngineInterface
         
         $reflClass = new \ReflectionClass($object);
         
+        $benchmarkAnnotations['.default'] = $this->getDefaultBenchmark($reflClass);
+        
         foreach($reflClass->getMethods() as $reflMethod) {
             $benchmarkAnnotation = $this->reader->getMethodAnnotation($reflMethod, 'Devhelp\AnnotationsDemo\Benchmark\Doctrine\Annotation\Benchmark');
             
@@ -29,5 +31,10 @@ class DoctrineAnnotationEngineDecorator implements AnnotationEngineInterface
         }
         
         return $benchmarkAnnotations;
+    }
+    
+    protected function getDefaultBenchmark(\ReflectionClass $reflClass)
+    {
+        return $this->reader->getClassAnnotation($reflClass, 'Devhelp\AnnotationsDemo\Benchmark\Doctrine\Annotation\Benchmark');
     }
 }

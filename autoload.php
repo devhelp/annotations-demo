@@ -10,6 +10,8 @@ $loader->registerNamespaceFallback(__DIR__.'/src');
 
 $loader->register();
 
+/*** ANNOTATIONS ***/
+
 /*** doctrine ***/
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
