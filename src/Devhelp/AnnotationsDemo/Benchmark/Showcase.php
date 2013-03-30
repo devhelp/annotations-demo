@@ -2,10 +2,10 @@
 
 namespace Devhelp\AnnotationsDemo\Benchmark;
 
-use Devhelp\AnnotationsDemo\Benchmark\Doctrine\Annotation as Demo;
+use Devhelp\AnnotationsDemo\Benchmark\Annotation\Benchmark;
 
 /**
-* @Demo\Benchmark(iterations=2000)
+* @Benchmark(iterations=2000)
 */
 class Showcase
 {
@@ -13,7 +13,7 @@ class Showcase
     
     public function __construct()
     {
-        $prefix = 'Devhelp\AnnotationsDemo\Benchmark\Showcase::';
+        $prefix = __CLASS__.'::';
         
         $this->fixtures = array(
             $prefix.'isSetWithVarThatWasSet' => 10,
@@ -30,7 +30,7 @@ class Showcase
     }
     
     /**
-     * @Demo\Benchmark
+     * @Benchmark
      */
     public function isSetWithVarThatWasSet()
     {
@@ -39,7 +39,7 @@ class Showcase
     }
     
     /**
-     * @Demo\Benchmark
+     * @Benchmark
      */
     public function isEmptyWithVarThatWasSet()
     {
@@ -47,7 +47,7 @@ class Showcase
     }
     
     /**
-     * @Demo\Benchmark
+     * @Benchmark
      */
     public function isSetWithVarThatWasNotSet()
     {
@@ -55,7 +55,7 @@ class Showcase
     }
     
     /**
-     * @Demo\Benchmark
+     * @Benchmark
      */
     public function isEmptyWithVarThatWasNotSet()
     {
@@ -63,7 +63,7 @@ class Showcase
     }
     
     /**
-     * @Demo\Benchmark
+     * @Benchmark
      */
     public function isArrayOfAnArray()
     {
@@ -71,7 +71,7 @@ class Showcase
     }
     
     /**
-     * @Demo\Benchmark
+     * @Benchmark
      */
     public function isArrayOfAString()
     {
@@ -79,7 +79,7 @@ class Showcase
     }
     
     /**
-     * @Demo\Benchmark
+     * @Benchmark
      */
     public function isArrayOfANonSetValue()
     {
@@ -87,7 +87,7 @@ class Showcase
     }
     
     /**
-     * @Demo\Benchmark
+     * @Benchmark
      */
     public function emptySingleQuotedString()
     {
@@ -95,7 +95,7 @@ class Showcase
     }
     
     /**
-     * @Demo\Benchmark
+     * @Benchmark
      */
     public function emptyDoubleQuotedString()
     {
@@ -103,7 +103,7 @@ class Showcase
     }
     
     /**
-     * @Demo\Benchmark
+     * @Benchmark
      */
     public function singleQuotedString20Bytes()
     {
@@ -111,7 +111,7 @@ class Showcase
     }
     
     /**
-     * @Demo\Benchmark
+     * @Benchmark
      */
     public function doubleQuotedString20Bytes()
     {
@@ -119,7 +119,7 @@ class Showcase
     }
     
     /**
-     * @Demo\Benchmark
+     * @Benchmark
      */
     public function variablesInHeredocString()
     {
@@ -133,7 +133,7 @@ TEXT;
     }
     
     /**
-     * @Demo\Benchmark
+     * @Benchmark
      */
     public function variablesInDoubleQuotedString()
     {
@@ -145,7 +145,7 @@ TEXT;
     }
     
     /**
-     * @Demo\Benchmark
+     * @Benchmark
      */
     public function stringConcatenationUsingDotOperator()
     {
@@ -182,7 +182,7 @@ TEXT;
     }
     
     /**
-     * @Demo\Benchmark
+     * @Benchmark
      */
     public function stringConcatenationUsingImplodeFunction()
     {
@@ -190,7 +190,7 @@ TEXT;
     }
     
     /**
-     * @Demo\Benchmark(iterations=1000)
+     * @Benchmark(iterations=1000)
      */
     public function loopWithPreCalculatedLength()
     {
@@ -202,7 +202,7 @@ TEXT;
     }
     
     /**
-     * @Demo\Benchmark(iterations=1000)
+     * @Benchmark(iterations=1000)
      */
     public function loopWithoutPreCalculatedLength()
     {
@@ -212,7 +212,7 @@ TEXT;
     }
     
     /**
-     * @Demo\Benchmark(iterations=1000)
+     * @Benchmark(iterations=1000)
      */
     public function accessToArrayValueInForLoop()
     {
@@ -221,19 +221,19 @@ TEXT;
         $size = count($array);
         
         for($i = 0; $i < $size; $i++) {
-            $var = $array[$i];
+            $array[$i];
         }
     }
     
     /**
-     * @Demo\Benchmark(iterations=1000)
+     * @Benchmark(iterations=1000)
      */
     public function accessToArrayValueInForeachLoop()
     {
         $array = $this->fixtures[__METHOD__];
         
         foreach($array as $value) {
-            $var = $value;
+            $value;
         }
     }
 }

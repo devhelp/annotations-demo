@@ -36,7 +36,7 @@ class BenchmarkWrapper
             
             $iterations = $this->benchmarks[$name]->iterations;
             
-            if(!$iterations && $this->benchmarks['.default'] instanceof Doctrine\Annotation\Benchmark) {
+            if(!$iterations && $this->benchmarks['.default'] instanceof \Devhelp\AnnotationsDemo\Benchmark\Annotation\Benchmark) {
                 $iterations = $this->benchmarks['.default']->iterations;
             }
             

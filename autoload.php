@@ -17,12 +17,14 @@ $loader->register();
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 
-//AnnotationRegistry::registerFile(__DIR__."/src/Devhelp/AnnotationsDemo/Benchmark/Doctrine/Annotation/Benchmark.php");
+//AnnotationRegistry::registerFile(__DIR__."/src/Devhelp/AnnotationsDemo/Benchmark/Annotation/Benchmark.php");
 //equals
-//AnnotationRegistry::registerAutoloadNamespace("Devhelp\AnnotationsDemo\Benchmark\Doctrine\Annotation", __DIR__."/src");
+//AnnotationRegistry::registerAutoloadNamespace("Devhelp\AnnotationsDemo\Benchmark\Annotation", __DIR__."/src");
 //equals
-//AnnotationRegistry::registerAutoloadNamespace("Devhelp\AnnotationsDemo\Benchmark\Doctrine\Annotation", __DIR__."/src");
+//AnnotationRegistry::registerAutoloadNamespace("Devhelp\AnnotationsDemo\Benchmark\Annotation", __DIR__."/src");
 AnnotationRegistry::registerLoader(array($loader, "loadClass"));
+AnnotationReader::addGlobalIgnoredName('dummy');
+AnnotationReader::addGlobalIgnoredName('dummy');
 AnnotationReader::addGlobalIgnoredName('dummy');
 
 /*** doctrine ***/

@@ -2,6 +2,8 @@
 
 require_once 'autoload.php';
 
+use Doctrine\Common\Annotations\AnnotationReader;
+
 use Devhelp\AnnotationsDemo\Benchmark\BenchmarkWrapper;
 use Devhelp\AnnotationsDemo\Benchmark\TestAnnotationEngineDecorator;
 use Devhelp\AnnotationsDemo\Benchmark\Doctrine\DoctrineAnnotationEngineDecorator;

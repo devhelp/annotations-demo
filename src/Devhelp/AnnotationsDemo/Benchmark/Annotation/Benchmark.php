@@ -1,6 +1,6 @@
 <?php
 
-namespace Devhelp\AnnotationsDemo\Benchmark\Doctrine\Annotation;
+namespace Devhelp\AnnotationsDemo\Benchmark\Annotation;
 
 /**
  * @Annotation

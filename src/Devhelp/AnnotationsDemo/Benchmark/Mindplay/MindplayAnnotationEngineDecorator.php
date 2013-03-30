@@ -3,15 +3,12 @@
 namespace Devhelp\AnnotationsDemo\Benchmark\Doctrine;
 
 use Devhelp\AnnotationsDemo\Benchmark\AnnotationEngineInterface;
-use Doctrine\Common\Annotations\AnnotationReader;
 
-class DoctrineAnnotationEngineDecorator implements AnnotationEngineInterface
+class MindplayAnnotationEngineDecorator implements AnnotationEngineInterface
 {   
-    protected $reader;
-    
-    public function __construct(AnnotationReader $reader)
+    public function __construct()
     {
-        $this->reader = $reader;
+        
     }
     
     public function getBenchmarkAnnotations($object)
