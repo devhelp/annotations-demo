@@ -11,7 +11,7 @@ $engineToRun = @$argv[1] ? $argv[1] : 'default';
 
 switch ($engineToRun) {
     case 'doctrine' :
-        $reader = new Doctrine\Common\Annotations\AnnotationReader();
+        $reader = new AnnotationReader();
         $engine = new DoctrineAnnotationEngineDecorator($reader);
         break;
     case 'test':

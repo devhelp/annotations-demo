@@ -14,6 +14,7 @@ $loader->register();
 
 /*** doctrine ***/
 
+use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 
 //AnnotationRegistry::registerFile(__DIR__."/src/Devhelp/AnnotationsDemo/Benchmark/Doctrine/Annotation/Benchmark.php");
@@ -22,6 +23,7 @@ use Doctrine\Common\Annotations\AnnotationRegistry;
 //equals
 //AnnotationRegistry::registerAutoloadNamespace("Devhelp\AnnotationsDemo\Benchmark\Doctrine\Annotation", __DIR__."/src");
 AnnotationRegistry::registerLoader(array($loader, "loadClass"));
+AnnotationReader::addGlobalIgnoredName('dummy');
 
 /*** doctrine ***/
 
