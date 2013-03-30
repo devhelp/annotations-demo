@@ -2,7 +2,7 @@
 
 require_once 'autoload.php';
 
-use Devhelp\AnnotationsDemo\Benchmark\BenchmarkDemo;
+use Devhelp\AnnotationsDemo\Benchmark\BenchmarkWrapper;
 use Devhelp\AnnotationsDemo\Benchmark\TestAnnotationEngineDecorator;
 use Devhelp\AnnotationsDemo\Benchmark\Doctrine\DoctrineAnnotationEngineDecorator;
 use Devhelp\AnnotationsDemo\Benchmark\Showcase;
@@ -21,11 +21,10 @@ switch ($engineToRun) {
         $engine = new TestAnnotationEngineDecorator();
 }
 
-$demo = new BenchmarkDemo($engine);
-
 $showcase = new Showcase();
 
-$wrapper = $demo->wrap($showcase);
+$wrapper = new BenchmarkWrapper($engine);
+$wrapper->wrap($showcase);
 
 $wrapper->isSetWithVarThatWasSet();
 $wrapper->isEmptyWithVarThatWasSet();

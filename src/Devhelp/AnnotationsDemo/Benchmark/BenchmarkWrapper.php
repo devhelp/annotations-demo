@@ -47,7 +47,7 @@ class BenchmarkWrapper
             }
             
             $end = microtime(true);
-            echo "\n".get_class($this->object)."->$name() call [x$iterations] took: " . ($end - $start) . " seconds\n";
+            echo "\n".get_class($this->object)."->$name() call\t [x$iterations] took:\t " . ($end - $start) . " seconds\n";
             return $return;
         }
         else {

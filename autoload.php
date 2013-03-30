@@ -25,4 +25,8 @@ AnnotationRegistry::registerLoader(array($loader, "loadClass"));
 
 /*** doctrine ***/
 
-new Mindplay\Annotation\AnnotationManager();die('test');
+/*** php-annotatinos ***/
+
+new Mindplay\Annotation\AnnotationManager();
+ 
+/*** php-annotatinos ***/
