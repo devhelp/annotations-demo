@@ -91,7 +91,7 @@ class Showcase
      */
     public function emptySingleQuotedString()
     {
-        $string = '';
+        '';
     }
     
     /**
@@ -99,7 +99,7 @@ class Showcase
      */
     public function emptyDoubleQuotedString()
     {
-        $string = "";
+        "";
     }
     
     /**
@@ -107,7 +107,7 @@ class Showcase
      */
     public function singleQuotedString20Bytes()
     {
-        $string = 'aaaaaaaaaaaaaaaaaaaa';
+        'aaaaaaaaaaaaaaaaaaaa';
     }
     
     /**
@@ -115,7 +115,7 @@ class Showcase
      */
     public function doubleQuotedString20Bytes()
     {
-        $string = "aaaaaaaaaaaaaaaaaaaa";
+        "aaaaaaaaaaaaaaaaaaaa";
     }
     
     /**
@@ -127,7 +127,7 @@ class Showcase
         $b = 'a';
         $c = true;
         
-$string = <<<TEXT
+<<<TEXT
 value of a = $a, b = $b and c = $c
 TEXT;
     }
@@ -141,7 +141,7 @@ TEXT;
         $b = 'a';
         $c = true;
         
-        $string = "value of a = $a, b = $b and c = $c";
+        "value of a = $a, b = $b and c = $c";
     }
     
     /**

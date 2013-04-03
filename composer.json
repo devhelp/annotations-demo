@@ -5,27 +5,11 @@
             "type":"package",
             "package": {
                 "name": "mindplay-dk/php-annotations",
-                "version": "1.1.0",
+                "version": "dev-master",
                 "source": {
                     "url": "git://github.com/mindplay-dk/php-annotations.git",
                     "type": "git",
-                    "reference":"1.1.0"
-                },
-                "target-dir": "Mindplay",
-                "autoload": {
-                    "psr-0": { "Mindplay\\": "" }
-                }
-            }
-        },
-        {
-            "type":"package",
-            "package": {
-                "name": "mindplay-dk/php-annotations",
-                "version": "1.0.0",
-                "source": {
-                    "url": "git://github.com/mindplay-dk/php-annotations.git",
-                    "type": "git",
-                    "reference":"1.0.0"
+                    "reference":"master"
                 },
                 "target-dir": "Mindplay",
                 "autoload": {
@@ -38,6 +22,6 @@
         "symfony/class-loader": "~2",
         "doctrine/common": "*",
         "jms/di-extra-bundle": "*",
-        "mindplay-dk/php-annotations" : "1.0.0"
+        "mindplay-dk/php-annotations" : "dev-master"
     }
 }
