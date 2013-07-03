@@ -26,6 +26,8 @@ class Showcase
             $prefix.'loopWithoutPreCalculatedLength' => range(0, 1000),
             $prefix.'accessToArrayValueInForLoop' => range(0, 1000),
             $prefix.'accessToArrayValueInForeachLoop' => range(0, 1000),
+            $prefix.'accessToArrayValueInForeachWithKeyVariableLoop' => range(0, 1000),
+            $prefix.'accessToArrayValueByReferenceInForeachLoop' => range(0, 1000),
         );
     }
     
@@ -34,7 +36,6 @@ class Showcase
      */
     public function isSetWithVarThatWasSet()
     {
-        
         isset($this->fixtures[__METHOD__]);
     }
     
@@ -83,7 +84,7 @@ class Showcase
      */
     public function isArrayOfANonSetValue()
     {
-        is_array(@$array);
+        @is_array($array);
     }
     
     /**
@@ -233,6 +234,30 @@ TEXT;
         $array = $this->fixtures[__METHOD__];
         
         foreach($array as $value) {
+            $value;
+        }
+    }
+    
+    /**
+     * @Benchmark(iterations=1000)
+     */
+    public function accessToArrayValueInForeachWithKeyVariableLoop()
+    {
+        $array = $this->fixtures[__METHOD__];
+        
+        foreach($array as $key => $value) {
+            $value;
+        }
+    }
+    
+    /**
+     * @Benchmark(iterations=1000)
+     */
+    public function accessToArrayValueByReferenceInForeachLoop()
+    {
+        $array = $this->fixtures[__METHOD__];
+        
+        foreach($array as &$value) {
             $value;
         }
     }

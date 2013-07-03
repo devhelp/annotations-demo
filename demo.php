@@ -1,31 +1,20 @@
 <?php
 
-require_once 'autoload.php';
+require_once __DIR__.'/autoload.php';
 
 use Doctrine\Common\Annotations\AnnotationReader;
 
 use Devhelp\AnnotationsDemo\Benchmark\BenchmarkWrapper;
-use Devhelp\AnnotationsDemo\Benchmark\TestAnnotationEngineDecorator;
-use Devhelp\AnnotationsDemo\Benchmark\Doctrine\DoctrineAnnotationEngineDecorator;
+use Devhelp\AnnotationsDemo\Benchmark\Doctrine\BenchmarkAnnotationReader;
 use Devhelp\AnnotationsDemo\Benchmark\Showcase;
 
-$engineToRun = @$argv[1] ? $argv[1] : 'default';
 
-switch ($engineToRun) {
-    case 'doctrine' :
-        $reader = new AnnotationReader();
-        $engine = new DoctrineAnnotationEngineDecorator($reader);
-        break;
-    case 'test':
-        $engine = new TestAnnotationEngineDecorator();
-        break;
-    default:
-        $engine = new TestAnnotationEngineDecorator();
-}
+$annotationReader = new AnnotationReader();
+$benchmarkAnnotationReader = new BenchmarkAnnotationReader($annotationReader);
 
 $showcase = new Showcase();
 
-$wrapper = new BenchmarkWrapper($engine);
+$wrapper = new BenchmarkWrapper($benchmarkAnnotationReader);
 $wrapper->wrap($showcase);
 
 $wrapper->isSetWithVarThatWasSet();
@@ -49,3 +38,5 @@ $wrapper->loopWithPreCalculatedLength();
 $wrapper->loopWithoutPreCalculatedLength();
 $wrapper->accessToArrayValueInForLoop();
 $wrapper->accessToArrayValueInForeachLoop();
+$wrapper->accessToArrayValueInForeachWithKeyVariableLoop();
+$wrapper->accessToArrayValueByReferenceInForeachLoop();

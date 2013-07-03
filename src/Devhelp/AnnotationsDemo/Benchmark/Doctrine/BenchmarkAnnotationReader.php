@@ -2,13 +2,19 @@
 
 namespace Devhelp\AnnotationsDemo\Benchmark\Doctrine;
 
-use Devhelp\AnnotationsDemo\Benchmark\AnnotationEngineInterface;
+use Devhelp\AnnotationsDemo\Benchmark\BenchmarkAnnotationReaderInterface;
+use Doctrine\Common\Annotations\AnnotationReader;
 
-class MindplayAnnotationEngineDecorator implements AnnotationEngineInterface
+class BenchmarkAnnotationReader implements BenchmarkAnnotationReaderInterface
 {   
-    public function __construct()
+    
+    const BENCHMARK_ANNOTATION = 'Devhelp\AnnotationsDemo\Benchmark\Annotation\Benchmark';
+    
+    protected $reader;    
+    
+    public function __construct(AnnotationReader $reader)
     {
-        
+        $this->reader = $reader;
     }
     
     public function getBenchmarkAnnotations($object)
@@ -20,7 +26,7 @@ class MindplayAnnotationEngineDecorator implements AnnotationEngineInterface
         $benchmarkAnnotations['.default'] = $this->getDefaultBenchmark($reflClass);
         
         foreach($reflClass->getMethods() as $reflMethod) {
-            $benchmarkAnnotation = $this->reader->getMethodAnnotation($reflMethod, 'Devhelp\AnnotationsDemo\Benchmark\Annotation\Benchmark');
+            $benchmarkAnnotation = $this->reader->getMethodAnnotation($reflMethod, static::BENCHMARK_ANNOTATION);
             
             if($benchmarkAnnotation) {
                 $benchmarkAnnotations[$reflMethod->name] = $benchmarkAnnotation;
@@ -32,6 +38,6 @@ class MindplayAnnotationEngineDecorator implements AnnotationEngineInterface
     
     protected function getDefaultBenchmark(\ReflectionClass $reflClass)
     {
-        return $this->reader->getClassAnnotation($reflClass, 'Devhelp\AnnotationsDemo\Benchmark\Annotation\Benchmark');
+        return $this->reader->getClassAnnotation($reflClass, static::BENCHMARK_ANNOTATION);
     }
 }

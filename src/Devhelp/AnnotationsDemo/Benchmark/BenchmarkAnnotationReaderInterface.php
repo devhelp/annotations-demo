@@ -2,7 +2,7 @@
 
 namespace Devhelp\AnnotationsDemo\Benchmark;
 
-interface AnnotationEngineInterface
+interface BenchmarkAnnotationReaderInterface
 {
     public function getBenchmarkAnnotations($object);
 }

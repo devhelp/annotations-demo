@@ -11,9 +11,9 @@ class Benchmark
     /** @var integer */
     public $iterations = 0;
     
-//    //sadly, this will not work      
+//    //this will not work      
 //    public function setIterations($iterations)
 //    {
-//        $this->iterations = 2*$iterations;
+//        //do something
 //    }
 }

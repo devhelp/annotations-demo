@@ -4,15 +4,15 @@ namespace Devhelp\AnnotationsDemo\Benchmark;
 
 class BenchmarkWrapper
 {
-    protected $annotationEngine;
+    protected $annotationReader;
     
     protected $object;
     
     protected $benchmarks = array();
     
-    public function __construct(AnnotationEngineInterface $annotationEngine)
+    public function __construct(BenchmarkAnnotationReaderInterface $annotationReader)
     {
-        $this->annotationEngine = $annotationEngine;
+        $this->annotationReader = $annotationReader;
     }
     
     /**
@@ -22,7 +22,7 @@ class BenchmarkWrapper
     public function wrap($object)
     {
         //read all the methods that have @Benchmark annotation
-        $this->benchmarks = $this->annotationEngine->getBenchmarkAnnotations($object);
+        $this->benchmarks = $this->annotationReader->getBenchmarkAnnotations($object);
         
         $this->object = $object;
         
